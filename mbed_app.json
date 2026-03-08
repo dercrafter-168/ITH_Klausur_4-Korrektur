@@ -1,0 +1,22 @@
+{
+  "requires": [
+    "bare-metal"
+  ],
+  "target_overrides": {
+    "*": {
+      "target.c_lib": "small",
+      "target.printf_lib": "minimal-printf",
+      "platform.minimal-printf-enable-floating-point": true,
+      "platform.stdio-minimal-console-only": true,
+      "target.macros_remove": [
+        "__FPU_PRESENT=1",
+        "ARM_MATH_CM4",
+        "ARM_MATH_CM4F"
+      ],
+      "target.macros_add": [
+        "__FPU_PRESENT=0",
+        "ARM_MATH_CM3"
+      ]
+    }
+  }
+}
